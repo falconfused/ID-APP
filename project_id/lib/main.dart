@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Ninjacard(),
+    home: sherudoge(),
   ));
 }
 
-class Ninjacard extends StatelessWidget {
+class sherudoge extends StatefulWidget {
+  @override
+  _sherudogeState createState() => _sherudogeState();
+}
+
+class _sherudogeState extends State<sherudoge> {
+  int pow = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,6 +23,16 @@ class Ninjacard extends StatelessWidget {
           backgroundColor: Colors.grey[900],
           elevation: 0.0,
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              pow += 1;
+            });
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.yellow,
+          foregroundColor: Colors.black,
+        ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
           child:
@@ -24,10 +40,10 @@ class Ninjacard extends StatelessWidget {
             Center(
               child: CircleAvatar(
                 backgroundImage: AssetImage("assets/captain.jpeg"),
-                radius: 70,
+                radius: 50,
               ),
             ),
-            Divider(height: 90, color: Colors.white),
+            Divider(height: 40, color: Colors.white),
             Text(
               "NAME",
               style: TextStyle(color: Colors.blueGrey),
@@ -41,7 +57,7 @@ class Ninjacard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 2.0),
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 20),
             Text(
               "REAL NAME",
               style: TextStyle(color: Colors.blueGrey),
@@ -55,7 +71,21 @@ class Ninjacard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 2.0),
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 20),
+            Text(
+              "POWER LEVEL",
+              style: TextStyle(color: Colors.blueGrey),
+            ),
+            SizedBox(height: 10),
+            Text(
+              '$pow',
+              style: TextStyle(
+                  color: Colors.amber,
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0),
+            ),
+            SizedBox(height: 20),
             Row(
               children: [
                 Icon(
